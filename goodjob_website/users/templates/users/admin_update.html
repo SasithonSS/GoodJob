@@ -1,0 +1,32 @@
+{% extends 'jobs/base_admin.html' %}
+{% load static %}
+{% block content %} 
+  {% for user in users %} 
+    <center>
+        <div class="container" id="header-detail">ข้อมูลของฉัน</div><br>
+          <div class="d-flex justify-content-center">
+            <div class="user_card5 mb-5">
+              <div class="d-flex justify-content-center" id="jobber_form">
+                <div class="col-8"><br>
+                <form method="post" action="" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="container mb-3">
+                          <input type="text" required name="username" class="form-control" id="username" value="{{user.username}}" placeholder="ชื่อผู้ใช้">
+                        </div>
+                        <div class="container mb-3">
+                          <input type="text" required name="name" class="form-control" id="name" value="{{user.first_name}}" placeholder="ชื่อ-สกุล">
+                        </div>
+                        <div class="container mb-3">
+                          <input type="text" required name="email" class="form-control" id="email" value="{{user.email}}" placeholder="อีเมล">
+                        </div>
+                        <div class="container mb-3">
+                          <input type="file" required name="picture" class="form-control" id="picture" value="{{user.employeruser.picture}}">
+                        </div>
+                          <input class="btn apply_btn" type="submit" value="แก้ไขข้อมูล"> <a class="btn btn-secondary" type="button" href="{% url 'admin_profile' user.id %}">ยกเลิก</a>
+            </form>
+          </div></div>
+          </div>    
+          </div>
+    </center>   
+  {%endfor%}
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'jobs/base.html' %}
+{% load static %}
+    {% block content %}
+    <div class class="container">
+    <div class="container mt-4 p-5">
+        <div class="d-flex justify-content-center mt-5" >
+                <div class="user_card2"><br>
+                    <div class="d-flex justify-content-center ">
+                        <h3 id="form-title">เข้าสู่ระบบ</h3>
+                    </div>
+                    <div class="d-flex justify-content-center form_container" id="login_form">
+                        <form method="POST" action="">
+                            {% csrf_token %}
+                            <div class="input-group mb-2">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control" id="username" name="username" placeholder="อีเมล">
+                            </div>
+                            <div class="input-group mb-2">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                </div>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="รหัสผ่าน">
+                            </div>
+                               <div class="d-flex justify-content-center my-4 login_container">
+                                 <input class="btn login_btn" type="submit" id="log"value="Log in">
+                               </div>
+                               {% if error %}
+                               <script>
+                                    swal({
+                                      title: 'Something went wrong',
+                                      text: 'บัญชีผู้ใช้หรือรหัสผ่านไม่ถูกต้อง',
+                                      type: "error",
+                                      timer: 5000,
+                                      button: false
+                                    });
+                                </script>
+                               {% endif %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </div>
+    {% endblock %}

@@ -1,0 +1,83 @@
+.user_card2 {
+    width: 350px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background: #fff;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 30px;
+
+}
+
+.form_container {
+    margin-top: 20px;
+    
+}
+
+#form-title{
+    color: #7098DA;
+    font-family: 'Mitr';
+    font-weight: lighter;
+}
+.login_btn {
+    width: 100%;
+    background: #7098DA !important;
+    color: white !important;
+    font-family: 'Mitr';
+    font-weight: lighter;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+.login_btn:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+.login_container {
+    padding: 0 2rem;
+}
+.input-group-text {
+    background: #7098DA !important;
+    color: #808080 !important;
+    border: 0 !important;
+    border-radius: 0.25rem 0 0 0.25rem !important;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+.input_user,
+.input_pass:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+
+.text{
+    color: #808080;
+    font-family: 'Mitr';
+    font-weight: lighter;
+}
+
+.text-bl{
+    color: #7098DA;
+    font-family: 'Mitr';
+    font-weight: lighter;
+}
+
+.text-emp{
+    color: #7098DA;
+    font-family: 'Mitr';
+    font-weight: lighter;
+    text-shadow: 1px 1px 3px #a4a6ab;
+}
+
+.login_box {
+    align-items: center;
+    justify-content: center;
+}
+
+#signup_form , #login_form{
+    font-family: 'Mitr';
+    font-weight: lighter;
+}

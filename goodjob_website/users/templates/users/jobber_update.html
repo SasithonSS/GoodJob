@@ -1,0 +1,82 @@
+{% extends 'jobs/base_jobber.html' %}
+{% load static %}
+{% block content %} 
+  {% for user in users %} 
+    <center>
+        <div class="container" id="header-detail">ข้อมูลของฉัน</div><br>
+          <div class="d-flex justify-content-center">
+            <div class="user_card5 mb-5">
+              <div class="d-flex justify-content-center" id="jobber_form">
+                <div class="col-8"><br>
+                <form method="post" action="" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="container mb-3">
+                          <input type="text" required name="username" class="form-control" id="username" value="{{user.username}}" placeholder="ชื่อผู้ใช้" disabled>
+                        </div>
+                        <div class="container mb-3">
+                          <input type="text" required name="name" class="form-control" id="name" value="{{user.first_name}}" placeholder="ชื่อ-สกุล" disabled>
+                        </div>
+                        <div class="container mb-3">
+                          <input type="text" required name="email" class="form-control" id="email" value="{{user.email}}" placeholder="อีเมล">
+                        </div>
+                        <div class="container mb-3">
+                          <input type="text" required name="phone" class="form-control" id="phone" value="{{user.jobberuser.phone}}" placeholder="เบอร์โทร">
+                        </div>
+                        <div class="container mb-3">
+                          <input type="number" required name="age" class="form-control" id="age" value="{{user.jobberuser.age}}" placeholder="อายุ">
+                        </div>
+                        <div class="container mb-3">
+                          <select class="form-control" aria-label="Gender" name="gender" id="gender">
+                            {% if user.jobberuser.gender %}
+                            <option selected>{{user.jobberuser.gender}}</option>
+                            {% else %}
+                            <option selected disabled>เพศ</option>
+                            {% endif %}
+                            {% for gen in gender %}
+                            <option value="{{gen.gender}}">{{gen.gender}}</option>
+                            {% endfor %}
+                          </select>
+                        </div>
+                        <div class="container mb-3">
+                          <select class="form-control" aria-label="Education" name="education" id="education" required>
+                            {% if user.jobberuser.education %}
+                            <option selected>{{user.jobberuser.education}}</option>
+                            {% else %}
+                            <option selected disabled>ระดับการศึกษา</option>
+                            {% endif %}
+                            {% for ed in education %}
+                            <option value="{{ed.education}}">{{ed.education}}</option>
+                            {% endfor %}
+                          </select>
+                        </div>
+                        <div class="container mb-3">
+                          <select class="form-control" aria-label="Province" name="province" id="province" required>
+                            {% if user.jobberuser.province %}
+                            <option selected>{{user.jobberuser.province}}</option>
+                            {% else %}
+                            <option selected disabled>จังหวัด</option>
+                            {% endif %}
+                            {% for pv in province %}
+                            <option value="{{pv.province}}">{{pv.province}}</option>
+                            {% endfor %}
+                          </select>
+                        </div>
+                        <div class="container mb-3">
+                          <input type="text" required name="address" class="form-control" id="address" value="{{user.jobberuser.address}}" placeholder="ที่อยู่">
+                        </div>
+                        <div class="container mb-3">
+                          <!-- <div class="col-5 subject-detail" ><img src="../../static/jobs/images/Pin_alt_fill.png" width="35px"></div> -->
+                          <input type="text"  name="location" class="form-control" id="location" value="{{user.jobberuser.location}}" placeholder="ที่ตั้ง">
+                        </div>
+                        <div class="container mb-3">
+                          <input type="file" required name="picture" class="form-control" id="picture" value="{{user.jobberuser.picture}}">
+                        </div>
+                          <input class="btn apply_btn" type="submit" value="แก้ไขข้อมูล"> <a class="btn btn-secondary" type="button" href="{% url 'jobber_profile' user.id %}">ยกเลิก</a>
+              
+            </form>
+          </div></div>
+          </div>    
+          </div>
+    </center>   
+  {%endfor%}
+{% endblock %}

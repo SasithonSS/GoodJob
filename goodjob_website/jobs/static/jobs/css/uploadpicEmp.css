@@ -1,0 +1,39 @@
+.user_card4 {
+    width: 450px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background: #fff;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 35px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 30px;
+}
+.picbox {
+    width:250px;
+    height:230px;
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+#text-body {
+    font-family: 'Mitr';
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #7098DA;
+}
+
+.apply_btn2 {
+    font-family: 'Mitr';
+    background-color: #7098DA;
+    border-radius: 25px;
+    font-weight: bold;
+    color: white;
+    padding: 5px 10px;
+    width: 200px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1)
+}

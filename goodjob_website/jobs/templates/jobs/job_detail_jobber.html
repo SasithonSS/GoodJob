@@ -1,0 +1,56 @@
+{% extends 'jobs/base_jobber.html' %}
+{% load static %}
+{% block content %} 
+  {% for job in jobs %} 
+    <center>
+        <div class="container" id="header-detail">รายละเอียดงาน</div><br>
+          <div class="d-flex justify-content-center">
+            <div class="user_card5 mb-5">
+              <div class="row">
+                <div class="col-4"><br>
+                  <div id="empname-detail">{{ job.emp_name }}</div>
+                  <img src="../../../{{ job.emp_name.picture }}" id="image3">
+                </div>
+                <div class="col-7"><br>
+                  <div class="row">
+                    <div class="col-5 subject-detail">ตำแหน่งงาน :</div>
+                    <div class="col-7 detail">{{job.name}}</div>
+                    <div class="col-5 subject-detail">รายละเอียดงาน :</div>
+                    <div class="col-7 detail">{{job.description}}</div>
+                    <div class="col-5 subject-detail">ค่าตอบแทน :</div>
+                    <div class="col-7 detail">{{job.pay}}</div>
+                    <div class="col-5 subject-detail">เบอร์โทรติดต่อ :</div>
+                    <div class="col-7 detail">{{ job.phone}}</div>
+                    <div class="col-5 subject-detail">สถานที่ทำงาน :</div>
+                    <div class="col-7 detail">{{ job.address }}</div>
+                  </div>
+                  <div class="container mt-3">
+                    {% for user in users %}
+                    {% if user.jobberuser.jobbercheck.check_jobber %}
+                    <a href="{% url 'job_apply' job_id=job.id %}" >
+                      <button type="button" class="btn apply_btn" >สมัครงาน</button>
+                    </a>
+                      {% else %}
+                      <button type="button" class="btn apply_btn" id="jobbb">สมัครงาน</button>
+                <script>
+                  $(document).ready(function () {
+                      document.querySelector('#jobbb').onclick = function () {
+                      swal({
+                        title: 'Something went wrong',
+                        text: 'กรุณายืนยันตัวตนก่อนสมัครงาน',
+                        type: "error",
+                        timer: 5000,
+                        button: false
+                      })
+                    }});
+                  </script>
+                  {% endif %}
+                  {% endfor %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>    
+    </center>   
+  {%endfor%}
+{% endblock %}

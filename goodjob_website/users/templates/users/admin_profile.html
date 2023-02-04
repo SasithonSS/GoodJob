@@ -1,0 +1,40 @@
+{% extends 'jobs/base_admin.html' %}
+{% load static %}
+{% block content %} 
+  {% for user in users %} 
+    <center>
+        <div class="container" id="header-detail">ข้อมูลของฉัน</div><br>
+          <div class="d-flex justify-content-center">
+            <div class="user_card5 mb-5">
+              <div class="row">
+                <div class="col-5"><br>
+                  {% if user.adminuser.picture %}
+                  <img src="../../../{{user.adminuser.picture }}" id="image3">
+                  {% else %}
+                  <img src="{% static 'jobs/images/Profile.png' %}" id="image3">
+                  {% endif %}
+                </div>
+                <div class="col-7"><br>
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-5 subject-detail">ชื่อผู้ใช้ :</div>
+                            <div class="col-7 detail">{{user.username}}</div>
+                            <div class="col-5 subject-detail">ชื่อ-สกุล :</div>
+                            <div class="col-7 detail">{{user.first_name}}</div>
+                            <div class="col-5 subject-detail">อีเมล :</div>
+                            <div class="col-7 detail">{{user.email}}</div>
+                          </div>
+                          <div class="container mt-3">
+                            <a href="/admin_update/{{user.id}}" >
+                                <button type="button" class="btn apply_btn" >แก้ไขข้อมูล</button>
+                              </a>
+                          </div>
+                    </form>
+                    
+              </div>
+            </div>
+          </div>    
+    </center>   
+  {%endfor%}
+{% endblock %}

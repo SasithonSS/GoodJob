@@ -1,0 +1,40 @@
+{% extends 'jobs/base_jobber.html' %}
+{% load static %}
+{% block content %} 
+  {% for apply_job in apply_jobs %} 
+    <center>
+        <div class="container" id="header-detail">รายละเอียดงาน</div><br>
+          <div class="d-flex justify-content-center">
+            <div class="user_card5 mb-5">
+              <div class="row">
+                <div class="col-4"><br>
+                  <div id="empname-detail">{{ job.emp_name }}</div>
+                  <img src="../../../{{ job.emp_name.picture }}" id="image3">
+                </div>
+                <div class="col-7"><br>
+                  <div class="row">
+                    <div class="col-5 subject-detail">ผู้จ้างงาน :</div>
+                    <div class="col-7 detail">{{apply_job.emp_name.name}}</div>
+                    <div class="col-5 subject-detail">ตำแหน่งงาน :</div>
+                    <div class="col-7 detail">{{apply_job.job.name}}</div>
+                    <div class="col-5 subject-detail">รายละเอียดงาน :</div>
+                    <div class="col-7 detail">{{apply_job.job.description}}</div>
+                    <div class="col-5 subject-detail">ค่าตอบแทน :</div>
+                    <div class="col-7 detail">{{apply_job.job.pay}}</div>
+                    <div class="col-5 subject-detail">เบอร์โทรติดต่อ :</div>
+                    <div class="col-7 detail">{{ apply_job.job.phone}}</div>
+                    <div class="col-5 subject-detail">สถานที่ทำงาน :</div>
+                    <div class="col-7 detail">{{ apply_job.job.address }}</div>
+                  </div>
+                  <div class="container mt-3">
+                    <a href="{% url 'myjob_apply' job_id=job.id %}" >
+                      <button type="button" class="btn apply_btn">รายละเอียดการสมัคร</button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>    
+    </center>   
+  {%endfor%}
+{% endblock %}

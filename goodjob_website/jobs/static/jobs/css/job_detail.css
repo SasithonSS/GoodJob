@@ -1,0 +1,127 @@
+.user_card5 {
+    width: 700px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background: #fff;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 40px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 30px;
+}
+
+.icon {
+    color: #A1A1A1 !important;
+    padding-left: 2rem;
+    padding-top: 20px;
+    width: 25px;
+    height: 10px;
+}
+
+#header-detail {
+    font-family: 'Mitr';
+    font-weight: bold;
+    font-size: 2rem;
+    color: #7098DA;
+    padding-top: 5px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#empname-detail {
+    font-family: 'Mitr';
+    font-weight: bold;
+    color: #7098DA;
+    font-size: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#image3 {
+    border: 8px solid;
+    border-color: #C8C2C2;
+    width: 170px;
+    height: 165px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1)
+
+}
+
+.subject-detail {
+    font-family: 'Mitr';
+    color: #7098DA;
+    padding-top: 3px;
+    padding-bottom: 5px;
+    justify-content: center;
+    align-items: center;
+    text-align: right;
+    font-size: 17px;
+}
+
+.detail {
+    font-family: 'Mitr';
+    padding-top: 3px;
+    padding-bottom: 5px;
+    justify-content: center;
+    align-items: center;
+    color: #808080;
+    text-align: left;
+}
+
+#map3 {
+    width:25px;
+    height:25px;
+    align-items: left;
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+.apply_btn {
+    font-family: 'Mitr';
+    background-color: #7098DA;
+    border-radius: 25px;
+    font-weight: bold;
+    color: white;
+    padding: 5px 10px;
+    margin-right: 30px;
+    width: 200px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1)
+}
+
+.image_btn {
+    background-color: #7098DA;
+    border-radius: 25px;
+    font-weight: bold;
+    font-family: 'Mitr';
+    color: white;
+    padding: 5px 10px;
+    width: 200px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1)
+}
+
+.btn_check {
+    font-family: 'Mitr';
+    background-color: #70da72;
+    color: white;
+    padding: 5px 10px;
+    width: 150px;
+    border-radius: 50px;
+}
+
+.btn_check_pic{
+    font-family: 'Mitr';
+    color: #808080;
+    font-size: 18px;
+}

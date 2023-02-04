@@ -1,0 +1,78 @@
+.navbar {
+    background: #fff;
+    padding: 0 25px;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn-bl {
+    background-color: #7098DA;
+    border-radius: 25px;
+    font-weight: bold;
+    color: white;
+    margin-left: 10px;
+}
+
+#login-button2 {
+    color: #7098DA;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Mitr';
+    font-weight: lighter;
+    font-size: 18px;
+    margin-top: 8px;
+}
+
+#login-button {
+    color: #7098DA;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: 'Mitr';
+    font-weight: lighter;
+}
+
+#login-buttonhome {
+    color: #7098DA;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#profileimage {
+    border: 3px solid;
+    border-color: #C8C2C2;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1)
+
+}
+
+#profileimage_pic {
+    border: 3px solid;
+    border-color: #d31616;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1)
+}
+
+#profileimage_pic_wait{
+    border: 3px solid;
+    border-color: #fcd526;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1)
+}
+
+#dropdown{
+    color: #808080;
+    font-family: 'Mitr';
+    font-weight: lighter;
+}

@@ -1,0 +1,22 @@
+{% extends 'jobs/base_jobber.html' %}
+{% load static %}
+{% block content %} 
+  {% for apply_job in apply_jobs %} 
+    <center>
+          <div class="d-flex justify-content-center">
+            <div class="user_card5 mb-5">
+                    <form method="post" action="">
+                        <div class="container" id="header-detail">สมัครงานเรียบร้อย</div><br>
+                        {% csrf_token %}
+                        <h3 style="font-family:Mitr; color: #808080;;">{{apply_job.emp_name}} : {{apply_job.job}}</h3>
+                        <div><img src="../{{apply_job.picture}}" width="300px"></div>
+                        <p style="color: red; font-family: Mitr;">โปรดบันทึก QR Code ไว้เพื่อเป็นหลักฐานในการยืนยันตัว</p>
+                        <a href="{% url 'myjob_apply_detail' id=apply_job.id %}" >
+                            <button type="button" class="btn image_btn" >ดูรายละเอียดงาน</button>
+                          </a>  
+            </form>
+            </div>
+          </div>  
+    </center>   
+  {%endfor%}
+{% endblock %}

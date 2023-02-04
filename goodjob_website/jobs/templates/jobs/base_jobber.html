@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} GoodJob {% endblock title %} </title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="{% static 'jobs/javascript/clickable.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'jobs/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'jobs/css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'jobs/css/signup.css' %}">
+    <link rel="stylesheet" href="{% static 'jobs/css/job_detail.css' %}">
+    <link rel="stylesheet" href="{% static 'users/css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'jobs/css/signup.css' %}">
+    <link rel="stylesheet" href="{% static 'jobs/css/signupemp.css' %}">
+    <link rel="stylesheet" href="{% static 'jobs/css/uploadpicEmp.css' %}">
+    <link rel="stylesheet" href="{% static 'jobs/css/jobber.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mitr">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bai Jamjuree">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+</head>
+<body>
+    <!-- Header -->
+    <!--------nav sign in --------->
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light navbar-fixed-top" >
+        <a class="col navbar-brand" href="/home_jobber">
+            <img src="{% static 'jobs/images/logo.png' %}" width="230px" height="50px" />
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+    <div class="col-4 collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <button type="button" class="btn btn-text btn-link" id="login-button2" data-bs-toggle="collapse">{{ request.user.first_name }} <span class="sr-only">(current)</span></button>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {% if request.user.jobberuser.picture %}
+                  {% if not request.user.jobberuser.jobbercheck.identity_pic %}
+                  <img class="card-img-top" src="../../../{{ request.user.jobberuser.picture}}" id="profileimage_pic">
+                  {% elif not request.user.jobberuser.jobbercheck.check_jobber %}
+                  <img class="card-img-top" src="../../../{{ request.user.jobberuser.picture}}" id="profileimage_pic_wait">
+                  {% else %}
+                  <img class="card-img-top" src="../../../{{ request.user.jobberuser.picture}}" id="profileimage">
+                  {% endif %}
+
+                  {% else %}
+                  {% if not request.user.jobberuser.jobbercheck.identity_pic %}
+                  <img class="card-img-top" src="../../../{{ request.user.jobberuser.picture}}" id="profileimage_pic">
+                  {% else %}
+                  <img class="card-img-top" src="{% static 'jobs/images/Profile.png' %}" id="profileimage">
+                  {% endif %}
+                  {% endif %}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" id="dropdown" href="{% url 'jobber_profile' id=request.user.id %}">ข้อมูลของฉัน</a>
+                  {% if not request.user.jobberuser.jobbercheck.identity_pic %}
+                  <a class="dropdown-item" id="dropdown" href="{% url 'jobber_check' id=request.user.id %}">ยืนยันตัวตน</a>
+                  {% endif %}
+                  <a class="dropdown-item" id="dropdown" href="{% url 'myjobs_jobber' id=request.user.id %}">งานของฉัน</a>
+                  <a class="dropdown-item" id="dropdown" href="#">งานใกล้ฉัน</a>
+                  <a class="dropdown-item" id="dropdown" href="{% url 'jobber_complain' %}">เขียนคำร้อง</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" id="dropdown" href="{% url 'logout' %}">ออกจากระบบ</a>
+                </div>
+              </li>
+
+        </ul>
+        </div>
+  </nav>
+<br>
+ {% block content %}
+{% endblock %} 
+</body>
+</html>
+
+<!-- Footer -->

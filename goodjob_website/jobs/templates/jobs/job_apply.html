@@ -1,0 +1,31 @@
+{% extends 'jobs/base_jobber.html' %}
+{% load static %}
+{% block content %} 
+{% for user in users %}
+    <center>
+          <div class="d-flex justify-content-center">
+            <div class="user_card5 mb-5">
+                    <form method="post" action="">
+                        <div class="container" id="header-detail">สมัครงานเรียบร้อย</div><br>
+                        {% csrf_token %}
+                        {% if jobs %}
+                        {% for job in jobs %} 
+                        <div><img src="../../static/jobs/images/qrcode/{{user.username}}{{job.id}}.png" width="300px"></div>
+                        <p style="color: red; font-family: Mitr;">โปรดบันทึก QR Code ไว้เพื่อเป็นหลักฐานในการยืนยันตัว</p>
+                        <a href="{% url 'home_jobber' %}" >
+                            <button type="button" class="btn image_btn" >บันทึกรูปภาพ</button>
+                          </a>  
+                        {% endfor %}
+                      {% else %}
+                      <div><img src="../../static/jobs/images/QRCode.png" width="300px"></div>
+                        <p style="color: red; font-family: Mitr;">โปรดบันทึก QR Code ไว้เพื่อเป็นหลักฐานในการยืนยันตัว</p>
+                        <a href="{% url 'home_jobber' %}" >
+                            <button type="button" class="btn image_btn" >บันทึกรูปภาพ</button>
+                          </a>  
+                      {% endif %}
+            </form>
+            </div>
+          </div>  
+    </center>   
+  {%endfor%}
+{% endblock %}
