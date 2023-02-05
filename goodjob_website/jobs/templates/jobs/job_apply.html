@@ -9,6 +9,7 @@
                         <div class="container" id="header-detail">สมัครงานเรียบร้อย</div><br>
                         {% csrf_token %}
                         {% for job in jobs %} 
+                        <h3 style="font-family:Mitr; color: #808080;">{{job.emp_name}} : {{job.job}}</h3>
                         <div><img src="../../static/jobs/images/qrcode/{{user.username}}{{job.job.id}}.png" width="300px"></div>
                         <p style="color: red; font-family: Mitr;">โปรดบันทึก QR Code ไว้เพื่อเป็นหลักฐานในการยืนยันตัว</p>
                         <a href="{% url 'myjob_apply_detail' id=job.id %}" >

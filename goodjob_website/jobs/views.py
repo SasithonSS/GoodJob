@@ -79,7 +79,7 @@ def job_apply(request,job_id):
         
 def job_apply_success(request,job_id):
     users = User.objects.filter(id=request.user.id)
-    jobs = ApplyJob.objects.get(jobber=request.user.id,job=job_id)
+    jobs = ApplyJob.objects.filter(jobber=request.user.id,job=job_id)
     success_message = 'apply success'
     jobbb = Job.objects.get(id=job_id)
     if ApplyJob.objects.filter(jobber=request.user.id,job=jobbb):
