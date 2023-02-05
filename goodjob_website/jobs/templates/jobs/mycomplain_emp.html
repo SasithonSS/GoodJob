@@ -1,0 +1,55 @@
+{% extends 'jobs/base_emp.html' %}
+{% load static %}
+
+{% block content %}
+{% if complain_emps %}
+    <div class="row" id="header">คำร้องเรียนของฉัน</div>
+<div>
+    <table class="table table-hover" id="myjob-table">
+        <tbody>
+            {% for complain_emp in complain_emps %}
+            <tr data-href="{% url 'mycomplain_emp_detail' id=complain_emp.id %}">
+                {% if complain_emp.jobber.picture %}
+                <td scope="row" width="3%"> <img class="card-img-top" src="../../../{{ complain_emp.jobber.picture }}" id="image"></td>
+                {% else %}
+                <td scope="row" width="3%"> <img class="card-img-top" src="../../static/jobs/images/Profile.png" id="image"></td>
+                {% endif %}
+                <td width="20%">
+                    <div class="col">
+                        <p id="job-name">{{ complain_emp.job }}</p>
+                        <p id="job-pay">{{ complain_emp.jobber }}</p>
+                    </div>
+                </td>
+                <td width="20%">
+                    <p style="margin-top: 25px; font-size:18px;">{{ complain_emp.emp_name }}</p>
+                </td>
+                <td width="20%">
+                    <p style="margin-top: 25px; font-size:18px;" id="complain_emp_name">{{ complain_emp.subject}}</p>
+                </td>
+                {% if complain_emp.status == True %}
+                <td width="10%"> <img src="../../static/jobs/images/check_blue.png" id="check"></td>
+                {% else %}
+                <td width="10%"> <img src="../../static/jobs/images/Inprogress.png" id="wait"></td>
+                {% endif %}
+            </tr>
+        </tbody>
+        {% endfor %} 
+    </table>
+</div>
+{% else %}
+<div class="row" id="header">งานของฉัน</div>
+<div class="d-flex justify-content-center my-3">
+    <img class="picbox" src="../../static/jobs/images/empty-box.png">
+</div>
+<div class="d-flex justify-content-center mt-3">
+    <p id="text-body">ไม่มีคำร้องเรียน</p>
+</div>
+<div class="d-flex justify-content-center mt-5">
+    {% for user in users %}
+    <a href="{% url 'emp_complain' emp_id=request.user.id %}">
+        <button type="button" class="btn apply_btn2">เขียนคำร้อง</button>
+    </a>
+    {% endfor %}  
+</div>
+{% endif %}
+{% endblock %}

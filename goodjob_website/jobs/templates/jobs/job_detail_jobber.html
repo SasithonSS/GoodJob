@@ -3,6 +3,28 @@
 {% block content %} 
   {% for job in jobs %} 
     <center>
+      {% if failed_message_gender %}
+      <script>
+            swal({
+              title: 'Something went wrong',
+              text: 'เพศของคุณไม่ตรงตามที่กำหนด',
+              type: "error",
+              timer: 5000,
+              button: false
+            })
+        </script>
+      {% endif %}
+      {% if failed_message_job %}
+      <script>
+            swal({
+              title: 'Something went wrong',
+              text: 'คุณได้ทำการสมัครงานนี้แล้ว',
+              type: "error",
+              timer: 5000,
+              button: false
+            })
+        </script>
+      {% endif %}
         <div class="container" id="header-detail">รายละเอียดงาน</div><br>
           <div class="d-flex justify-content-center">
             <div class="user_card5 mb-5">
@@ -17,6 +39,8 @@
                     <div class="col-7 detail">{{job.name}}</div>
                     <div class="col-5 subject-detail">รายละเอียดงาน :</div>
                     <div class="col-7 detail">{{job.description}}</div>
+                    <div class="col-5 subject-detail">เพศ :</div>
+                    <div class="col-7 detail">{{job.gender}}</div>
                     <div class="col-5 subject-detail">ค่าตอบแทน :</div>
                     <div class="col-7 detail">{{job.pay}}</div>
                     <div class="col-5 subject-detail">เบอร์โทรติดต่อ :</div>

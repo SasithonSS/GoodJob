@@ -10,6 +10,7 @@
                 <div class="col-5"><br>
                   <div id="empname-detail">{{ job.emp_name }}</div>
                   <img src="../../../{{ job.emp_name.picture }}" id="image3">
+                  <br>
                 </div>
                 <div class="col-7"><br>
                   <div class="row">
@@ -17,6 +18,8 @@
                     <div class="col-7 detail">{{job.name}}</div>
                     <div class="col-5 subject-detail">รายละเอียดงาน :</div>
                     <div class="col-7 detail">{{job.description}}</div>
+                    <div class="col-5 subject-detail">เพศ :</div>
+                    <div class="col-7 detail">{{ job.gender }}</div>
                     <div class="col-5 subject-detail">ค่าตอบแทน :</div>
                     <div class="col-7 detail">{{job.pay}}</div>
                     <div class="col-5 subject-detail">เบอร์โทรติดต่อ :</div>

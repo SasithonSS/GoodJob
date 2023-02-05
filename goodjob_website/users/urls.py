@@ -8,6 +8,7 @@ urlpatterns = [
     path('signup_emp', views.signup_emp, name='signup_emp'),
     path('jobber_profile/<int:id>', views.jobber_profile, name='jobber_profile'),
     path('jobber_check/<int:id>', views.jobber_check, name='jobber_check'),
+    path('emp_check/<int:id>', views.emp_check, name='emp_check'),
     path('jobber_update/<int:id>', views.jobber_update, name='jobber_update'),
     path('emp_profile/<int:id>', views.emp_profile, name='emp_profile'),
     path('emp_update/<int:id>', views.emp_update, name='emp_update'),

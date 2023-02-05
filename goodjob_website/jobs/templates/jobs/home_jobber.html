@@ -34,8 +34,16 @@
                 <td width="2%"> <img src="../../static/jobs/images/Pin_alt_fill.png" id="map"></td>
                 <td width="27%">
                     <p id="job_location">{{ jobs.address }}</p>
-                    </span>
                 </td>
+                {% if jobs.jobber > 0 %}
+                <td width="3%">
+                    <button  type="button" class="btn hired_btn">{{ jobs.jobber }} ผู้สมัคร</button>
+                </td>
+                {% else %}
+                <td width="3%">
+                    <button  type="button" class="btn cancel_btn">ไม่มีผู้สมัคร</button>
+                </td>
+                {% endif %}
             </tr>
         </tbody>
         {% endfor %}
@@ -73,8 +81,16 @@
                 <td width="2%"> <img src="../../static/jobs/images/Pin_alt_fill.png" id="map"></td>
                 <td width="27%">
                     <p id="job_location">{{ jobs.address }}</p>
-                    </span>
                 </td>
+                {% if jobs.jobber > 0 %}
+                <td width="3%">
+                    <button  type="button" class="btn hired_btn">{{ jobs.jobber }} ผู้สมัคร</button>
+                </td>
+                {% else %}
+                <td width="3%">
+                    <button  type="button" class="btn cancel_btn">ไม่มีผู้สมัคร</button>
+                </td>
+                {% endif %}
             </tr>
         </tbody>
         {% endfor %}

@@ -1,0 +1,71 @@
+{% extends 'jobs/base_emp.html' %}
+{% load static %}
+{% block content %} 
+  {% for job_apply in job_applys %} 
+    <center>
+        <div class="container" id="header-detail">ข้อมูลของฉัน</div><br>
+          <div class="d-flex justify-content-center">
+            <div class="user_card5 mb-5">
+              <div class="row">
+                <div class="col-5"><br>
+                  {% if job_apply.jobber.picture %}
+                  <img src="../../../{{job_apply.jobber.picture }}" id="image3">
+                  {% else %}
+                  <img src="{% static 'jobs/images/Profile.png' %}" id="image3">
+                  {% endif %}
+                  <br>
+                  {% if job_apply.jobber.jobbercheck.check_jobber %}
+                  <div class="container mt-2">
+                    <img src="{% static 'jobs/images/check.png' %}" id="image_check"> <button class="btn btn_check" >ยืนยันตัวตนแล้ว</button>
+                </div>
+                {% elif job_apply.jobber.jobbercheck.identity_pic %}
+                <img src="{% static 'jobs/images/Inprogress.png' %}" id="image_check"> <p class="btn_check_pic" >อยู่ระหว่างการตรวจสอบ</p>
+                  {% else %}
+                  <img src="{% static 'jobs/images/warning.png' %}" id="image_check2"> <p class="btn_check_pic" >ยังไม่ได้ยืนยันตัวตน</p>
+                  {% endif %}
+                </div>
+
+                <div class="col-6"><br>
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-4 subject-detail">ชื่อผู้ใช้ :</div>
+                            <div class="col-8 detail">{{job_apply.jobber.user}}</div>
+                            <div class="col-4 subject-detail">ชื่อ-สกุล :</div>
+                            <div class="col-8 detail">{{job_apply.jobber.name}}</div>
+                            <div class="col-4 subject-detail">อีเมล :</div>
+                            <div class="col-8 detail">{{job_apply.jobber.email}}</div>
+                            <div class="col-4 subject-detail">เบอร์โทร :</div>
+                            <div class="col-8 detail">{{job_apply.jobber.phone}}</div>
+                            <div class="col-4 subject-detail">เพศ :</div>
+                            <div class="col-8 detail">{{job_apply.jobber.gender}}</div>
+                            <div class="col-4 subject-detail">อายุ :</div>
+                            <div class="col-8 detail">{{job_apply.jobber.age}}</div>
+                            <div class="col-4 subject-detail">การศึกษา :</div>
+                            <div class="col-8 detail">{{job_apply.jobber.education}}</div>
+                            <div class="col-4 subject-detail">จังหวัด :</div>
+                            <div class="col-8 detail">{{job_apply.jobber.province}}</div>
+                            <div class="col-4 subject-detail">ที่อยู่ :</div>
+                            <div class="col-8 detail">{{job_apply.jobber.address}}</div>
+                          </div>             
+                    </form>
+                    
+              </div>
+              
+              <div class="container mt-3">
+                <br>
+                {% if job_apply.check_apply == False %}
+                <a href="{% url 'jobber_hired' job_id=job_apply.id %}" >
+                    <button type="button" class="btn apply_btn" >จ้างงาน</button>
+                </a>
+                {% else %}
+                <a href="{% url 'cancel_hired' job_id=job_apply.id %}" >
+                  <button type="button" class="btn apply_btn" >เลิกจ้างงาน</button>
+              </a>
+              {% endif %}
+              </div>
+            </div>
+          </div>    
+    </center>   
+  {%endfor%}
+{% endblock %}

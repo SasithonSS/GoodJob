@@ -13,6 +13,18 @@
                   {% else %}
                   <img src="{% static 'jobs/images/Profile.png' %}" id="image3">
                   {% endif %}
+                  <br>
+                  <br>
+                  {% if user.employeruser.employercheck.check_emp %}
+                  <div class="container mt-2">
+                    <img src="{% static 'jobs/images/check.png' %}" id="image_check"> <button class="btn btn_check" >ยืนยันตัวตนแล้ว</button>
+                </div>
+                {% elif user.employeruser.employercheck.identity_pic %}
+                <img src="{% static 'jobs/images/Inprogress.png' %}" id="image_check"> <p class="btn_check_pic" >อยู่ระหว่างการตรวจสอบ</p>
+                  {% else %}
+                  <img src="{% static 'jobs/images/warning.png' %}" id="image_check2"> <p class="btn_check_pic" >ยังไม่ได้ยืนยันตัวตน</p>
+                  {% endif %}
+                  
                 </div>
                 <div class="col-7"><br>
                     <form method="post" action="">
@@ -31,9 +43,9 @@
                             <div class="col-5 subject-detail">จังหวัด :</div>
                             <div class="col-7 detail">{{user.employeruser.province}}</div>
                             <div class="col-5 subject-detail">ที่อยู่ :</div>
-                            <div class="col-7 detail">{{user.employeruser.address}}</div>
+                            <div class="col-7 detail">{{ user.employeruser.location}}</div>
                             <div class="col-5 subject-detail" ><img src="../../static/jobs/images/Pin_alt_fill.png" width="35px"></div>
-                            <div class="col-7 detail">{{ user.employeruser.location }}</div>
+                            <div class="col-7 detail">{{user.employeruser.address }}</div>
                           </div>
                           <div class="container mt-3">
                             <a href="/emp_update/{{user.id}}" >

@@ -17,20 +17,31 @@
                 {% else %}
                 <td scope="row" width="3%"> <img class="card-img-top" src="../../static/jobs/images/Profile.png" id="image"></td>
                 {% endif %}
-                <td width="20%">
+                <td width="18%">
                     <div class="col">
+                      
                         <p id="job-name">{{ job_emp.name }}</p>
                         <p id="job-pay">{{ job_emp.pay }}</p>
                     </div>
+                <td width="18%">
+                    <p style="margin-top: 25px; font-size: 18px;">{{ job_emp.name }}</p>
                 </td>
+                <td width="2%"> <img src="../../static/jobs/images/Pin_alt_fill.png" id="mapapply"></td>
                 <td width="20%">
-                    <p id="job_emp_name">{{ job_emp.emp_name }}</p>
+                    <p style="margin-top: 30px; font-size: 16px;" id="job_location">{{ job_emp.address }}</p>
+                    {% if job_emp.jobber > 0 %}
+                <td width="3%">
+                    <a href="{% url 'myjobber' id=job_emp.id %}" >
+                        <button  type="button" class="btn hired_btn">{{ job_emp.jobber }} ผู้สมัคร</button>
+                      </a>
                 </td>
-                <td width="2%"> <img src="../../static/jobs/images/Pin_alt_fill.png" id="map"></td>
-                <td width="27%">
-                    <p id="job_location">{{ job_emp.address }}</p>
-                    </span>
+                {% else %}
+                <td width="3%">
+                    <a href="{% url 'myjobber' id=job_emp.id %}" >
+                        <button  type="button" class="btn cancel_btn">ไม่มีผู้สมัคร</button>
+                      </a>
                 </td>
+                {% endif %}
             </tr>
         </tbody>
         {% endfor %} 

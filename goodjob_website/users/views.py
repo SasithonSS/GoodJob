@@ -146,6 +146,22 @@ def jobber_check(request,id):
     context = {'users': users,'gender':gender}
     return render(request, 'users/jobber_check.html', context)
 
+
+@login_required(login_url='login')
+def emp_check(request,id):
+    users = User.objects.filter(id=id)
+    gender = Gender.objects.all()
+    if request.method == 'POST':
+        user = User.objects.get(id=id)
+        employer_check = EmployerCheck()
+        employer_check.employer = EmployerUser.objects.get(user=id)
+        employer_check.identity_pic = request.FILES['picture']
+        employer_check.save()
+        return redirect('emp_profile',id=id)
+
+    context = {'users': users,'gender':gender}
+    return render(request, 'users/emp_check.html', context)
+
 @login_required(login_url='login')
 def emp_profile(request,id):
     users = User.objects.filter(id=id)

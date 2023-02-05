@@ -1,0 +1,35 @@
+{% extends 'jobs/base_emp.html' %}
+{% load static %}
+{% block content %} 
+  {% for job in jobs %} 
+    <center>
+        <div class="container" id="header-detail">รายละเอียดคำร้อง/div><br>
+          <div class="d-flex justify-content-center">
+            <div class="user_card5 mb-5">
+              <div class="row">
+                <div class="col-5"><br>
+                  <div id="empname-detail">{{ job.emp_name }}</div>
+                  <img src="../../../{{ job.emp_name.picture }}" id="image3">
+                </div>
+                <div class="col-7"><br>
+                  <div class="row">
+                    <div class="col-5 subject-detail">ตำแหน่งงาน :</div>
+                    <div class="col-7 detail">{{job.name}}</div>
+                    <div class="col-5 subject-detail">รายละเอียดงาน :</div>
+                    <div class="col-7 detail">{{job.description}}</div>
+                    <div class="col-5 subject-detail">ค่าตอบแทน :</div>
+                    <div class="col-7 detail">{{job.pay}}</div>
+                    <div class="col-5 subject-detail">เบอร์โทรติดต่อ :</div>
+                    <div class="col-7 detail">{{ job.phone}}</div>
+                    <div class="col-5 subject-detail">สถานที่ทำงาน :</div>
+                    <div class="col-7 detail">{{ job.address }}</div>
+                    <div class="col-5 subject-detail" ><img src="../../static/jobs/images/Pin_alt_fill.png" width="35px"></div>
+                    <div class="col-7 detail">{{ job.location }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>    
+    </center>   
+  {%endfor%}
+{% endblock %}

@@ -3,9 +3,9 @@ from .models import *
 
 @admin.register(JobberUser)
 class JobberUserAdmin(admin.ModelAdmin):
-    list_display = ['user','name', 'email','phone','address', 'province']
-    ordering = ['user','name','email','phone','address','province']
-    search_fields = ['name','email','province__province']
+    list_display = ['user','name', 'email','phone','address', 'province','hasjob']
+    ordering = ['user','name','email','phone','address','province','hasjob']
+    search_fields = ['name','email','province__province','hasjob']
 
 @admin.register(EmployerUser)
 class EmployerUserAdmin(admin.ModelAdmin):
@@ -22,7 +22,7 @@ class AdminUserAdmin(admin.ModelAdmin):
 @admin.register(JobberCheck)
 class JobberCheckAdmin(admin.ModelAdmin):
     list_display = ['jobber','gender','identity_pic','check_jobber']
-    ordering = ['jobber','gender','identity_pic']
+    ordering = ['jobber','gender','identity_pic','check_jobber']
     search_fields = ['jobber']
 
 @admin.register(EmployerCheck)
@@ -33,8 +33,8 @@ class EmployerCheckAdmin(admin.ModelAdmin):
 
 @admin.register(Job)
 class JobAdmin(admin.ModelAdmin):
-    list_display = ['name','phone','gender','emp_name','province','pay']
-    ordering = ['name','phone','gender','emp_name','province','pay']
+    list_display = ['name','phone','gender','emp_name','province','pay','jobber','apply']
+    ordering = ['name','phone','gender','emp_name','province','pay','jobber','apply']
     search_fields = ['name','emp_name']
 
 @admin.register(ApplyJob)
@@ -44,13 +44,13 @@ class ApplyJobAdmin(admin.ModelAdmin):
     search_fields = ['job','jobber','emp_name']
 
 @admin.register(JobberComplain)
-class JobberAdmin(admin.ModelAdmin):
+class JobberComplainAdmin(admin.ModelAdmin):
     list_display = ['job','jobber','emp_name','subject','complain_date','status']
-    ordering = ['job','jobber','emp_name','subject','complain_date','status']
+    ordering = ['job','jobber','emp_name','subject','complain_date','status',]
     search_fields = ['job','jobber','emp_name','subject']
 
 @admin.register(EmployerComplain)
-class EmployerAdmin(admin.ModelAdmin):
+class EmployerComplainAdmin(admin.ModelAdmin):
     list_display = ['job','jobber','emp_name','subject','complain_date','status']
     ordering = ['job','jobber','emp_name','subject','complain_date','status']
     search_fields = ['job','jobber','emp_name','subject']

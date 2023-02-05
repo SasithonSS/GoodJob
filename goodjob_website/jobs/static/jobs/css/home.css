@@ -84,7 +84,7 @@
 #myjob-table {
     color: #808080;
     font-family: 'Bai Jamjuree';
-    width: 70%;
+    width: 75%;
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
@@ -163,4 +163,22 @@
     height:30px;
     margin-top: 20px;
     margin-left: 5px;
+}
+
+#mapapply {
+    width:40px;
+    height:40px;
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+#check {
+    width:40px;
+    height:40px;
+    margin-top: 15px;
+}
+#wait {
+    width:50px;
+    height:50px;
+    margin-top: 15px;
 }
