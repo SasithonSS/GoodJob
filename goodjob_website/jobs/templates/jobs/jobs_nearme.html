@@ -4,7 +4,7 @@
 {% block content %}
 {% if searched %}
 <div class="col">
-    <div class="row mt-5" id="header">งานใกล้ฉัน</div>
+    <div class="row mt-3" id="header">งานใกล้ฉัน</div>
     <br>
     <div class="row" id="search">
         <form class="d-flex" method="POST" action="{% url 'jobs_nearme' %}">
@@ -60,7 +60,7 @@
 {% endif %}
 {% else %}
 <div class="col">
-    <div class="row mt-5" id="header">งานใกล้ฉัน</div>
+    <div class="row mt-3" id="header">งานใกล้ฉัน</div>
     <br>
     <div class="row" id="search">
         <form class="d-flex" method="POST" action="{% url 'jobs_nearme' %}">
