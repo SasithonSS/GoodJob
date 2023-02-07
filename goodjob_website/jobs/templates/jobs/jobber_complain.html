@@ -1,7 +1,19 @@
 {% extends 'jobs/base_jobber.html' %}
 {% load static %}
 {% block content %} 
+{% if job_applys %}
     <center>
+      {% if failed_message %}
+      <script>
+            swal({
+              title: 'Something went wrong',
+              text: '{{failed_message}}',
+              type: "error",
+              timer: 5000,
+              button: false
+            })
+        </script>
+      {% endif %}
         <div class="container" id="header-detail">เขียนคำร้อง</div><br>
           <div class="d-flex justify-content-center">
             <div class="user_card5 mb-5">
@@ -9,14 +21,6 @@
                 <div class="col-8"><br>
                 <form method="post" action="" enctype="multipart/form-data">
                         {% csrf_token %}
-                        <div class="container mb-3">
-                          <select class="form-control" aria-label="Job" name="job" id="job" required>
-                            <option selected disabled>ชื่องาน</option>
-                            {% for jobs_list in jobs_lists %} 
-                            <option value="{{jobs_list}}">{{jobs_list}}</option>
-                            {% endfor %}
-                          </select>
-                        </div>
                         <div class="container mb-3">
                           <select class="form-control" aria-label="Emp_name" name="emp_name" id="emp_name" required>
                             <option selected disabled>ผู้จ้างงาน</option>
@@ -42,4 +46,13 @@
           </div>    
           </div>
     </center>
+    {% else %}
+<div class="row mt-4" id="header">ไม่สามารถเขียนคำร้องได้</div>
+<div class="d-flex justify-content-center my-3">
+    <img class="picbox" src="../../static/jobs/images/empty-box.png">
+</div>
+<div class="d-flex justify-content-center mt-5">
+    <p id="text-body">เนื่องจากไม่มีการจ้างงาน</p>
+</div>
+{% endif %}
 {% endblock %}

@@ -14,6 +14,7 @@ class EmployerUser(models.Model):
     province = models.ForeignKey(Province,on_delete=models.CASCADE,verbose_name='จังหวัด')
     location = models.CharField('ที่ตั้ง',max_length=100, null=True, blank=True,)
     picture = models.FileField('รูปภาพ',null=True, blank=True, upload_to='jobs/static/jobs/images/Employer/')
+    hasjobber = models.BooleanField('มีลูกจ้าง',default=False)
 
     def __str__(self):
         return self.name
@@ -65,7 +66,6 @@ class Job(models.Model):
 
 class JobberCheck(models.Model):
     jobber = models.OneToOneField(JobberUser, on_delete=models.CASCADE, primary_key=True,verbose_name='ผู้หางาน')
-    gender = models.ForeignKey(Gender, on_delete=models.CASCADE,verbose_name='เพศ',null=True, blank=True)
     identity_pic = models.FileField('หลักฐานยืนยันตัวตน',null=True, blank=True, upload_to='jobs/static/jobs/images/identity/Employer/')
     check_jobber = models.BooleanField('ตรวจสอบ',default=False)
 
@@ -87,7 +87,6 @@ class ApplyJob(models.Model):
 
 
 class JobberComplain(models.Model):
-    job = models.ForeignKey(Job, on_delete=models.CASCADE,verbose_name='ชื่องาน')
     jobber = models.ForeignKey(JobberUser, on_delete=models.CASCADE, verbose_name='ผู้สมัคร')
     emp_name = models.ForeignKey(EmployerUser, on_delete=models.CASCADE,verbose_name='ผู้จ้างงาน')
     subject = models.ForeignKey(JobberSubjectComplain, on_delete=models.CASCADE, verbose_name='หัวข้อร้องเรียน')
@@ -97,7 +96,6 @@ class JobberComplain(models.Model):
 
 
 class EmployerComplain(models.Model):
-    job = models.ForeignKey(Job, on_delete=models.CASCADE,verbose_name='ชื่องาน')
     jobber = models.ForeignKey(JobberUser, on_delete=models.CASCADE, verbose_name='ผู้สมัคร')
     emp_name = models.ForeignKey(EmployerUser, on_delete=models.CASCADE,verbose_name='ผู้จ้างงาน')
     subject = models.ForeignKey(EmployerSubjectComplain, on_delete=models.CASCADE, verbose_name='หัวข้อร้องเรียน')

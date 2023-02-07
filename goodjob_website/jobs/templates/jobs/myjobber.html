@@ -17,27 +17,27 @@
                 {% endif %}
                 <td width="20%">
                     <div class="col">
-                        <p id="job-name">{{ apply_job.job.name }}</p>
+                        <p id="job-name2">{{ apply_job.job.name }}</p>
                         <p id="job-pay">{{ apply_job.job.pay }}</p>
                     </div>
                 </td>
-                <td width="15%">
-                    <p style="margin-top: 28px; font-size: 17px;">{{ apply_job.jobber }}</p>
+                <td width="17%">
+                    <p style="margin-top: 28px; font-size: 16px;">{{ apply_job.jobber }}</p>
                 </td>
                 <td width="2%"> <img src="../../static/jobs/images/Pin_alt_fill.png" id="mapapply"></td>
-                <td width="22%">
+                <td width="25%">
                     <p style="margin-top: 30px; font-size: 16px;" id="job_location">{{ apply_job.emp_name.address }}</p>
                 </td>
                 {% if apply_job.check_apply %}
-                <td width="10%"> <img src="../../static/jobs/images/check_blue.png" id="check"></td>
-                <td>
+                <td width="8%"> <img src="../../static/jobs/images/check_blue.png" id="check"></td>
+                <td width="5%">
                 <a href="" >
                     <button  type="button" class="btn hired_btn">จ้างงานแล้ว</button>
                   </a>
             </td>
                 {% else %}
-                <td width="10%"> <img src="../../static/jobs/images/Inprogress.png" id="wait"></td>
-                <td width="3%">
+                <td width="8%"> <img src="../../static/jobs/images/Inprogress.png" id="wait"></td>
+                <td width="5%">
                     <a href="{% url 'delete_myjobbers' id=apply_job.id %}" >
                             <button  type="button" class="btn cancel_btn">ยกเลิก</button>
                         </a>

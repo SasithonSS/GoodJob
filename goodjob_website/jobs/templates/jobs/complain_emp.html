@@ -1,0 +1,56 @@
+{% extends 'jobs/base_admin.html' %}
+{% load static %}
+
+{% block content %}
+{% if complain_emps %}
+    <div class="row" id="header">คำร้องเรียนของผู้จ้างงาน</div>
+<div>
+    <table class="table table-hover" id="myjob-table">
+        <tbody>
+            {% for complain_emp in complain_emps %}
+            <tr data-href="{% url 'complain_emp_detail' id=complain_emp.id %}">
+                {% if complain_emp.jobber.picture %}
+                <td scope="row" width="3%"> <img class="card-img-top" src="../../../{{ complain_emp.jobber.picture }}" id="image"></td>
+                {% else %}
+                <td scope="row" width="3%"> <img class="card-img-top" src="../../static/jobs/images/Profile.png" id="image"></td>
+                {% endif %}
+                <td width="20%">
+                        <p style="margin-top: 28px; font-size: 17px;text-align: center; font-family:'Bai Jamjuree';">{{ complain_emp.jobber }}</p>
+                </td>
+                <td width="20%">
+                    <p style="margin-top: 28px; font-size:17px; text-align: center;">{{ complain_emp.emp_name }}</p>
+                </td>
+                <td width="22%">
+                    <p style="margin-top: 25px; font-size:17px;" id="complain_emp_name">{{ complain_emp.subject}}</p>
+                </td>
+                {% if complain_emp.status == True %}
+                <td width="10%"> <img src="../../static/jobs/images/check_blue.png" id="check"></td>
+                <td width="3%">
+                    <a href="" >
+                        <button  type="button" class="btn hired_btn">ดำเนินการแล้ว</button>
+                      </a>
+                </td>
+                {% else %}
+                <td width="10%"> <img src="../../static/jobs/images/Inprogress.png" id="wait"></td>
+                <td width="3%">
+                    <a href="{% url 'delete_empcomplain' id=complain_emp.id %}" >
+                        <button  type="button" class="btn cancel_btn">ยกเลิก</button>
+                      </a>
+                </td>
+                {% endif %}
+
+            </tr>
+        </tbody>
+        {% endfor %} 
+    </table>
+</div>
+{% else %}
+<div class="row" id="header">คำร้องเรียนของฉัน</div>
+<div class="d-flex justify-content-center my-3">
+    <img class="picbox" src="../../static/jobs/images/empty-box.png">
+</div>
+<div class="d-flex justify-content-center mt-3">
+    <p id="text-body">ไม่มีคำร้องเรียน</p>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends 'jobs/base_jobber.html' %}
+{% load static %}
+
+{% block content %}
+{% if searched %}
+<div class="col">
+    <div class="row mt-5" id="header">งานใกล้ฉัน</div>
+    <br>
+    <div class="row" id="search">
+        <form class="d-flex" method="POST" action="{% url 'jobs_nearme' %}">
+            {% csrf_token %}
+            <input class="form-control" type="search" placeholder="พนักงานขาย" id="search-input" name="searched"
+                value="{{searched}}">
+            <button type="submit" class="btn btn-bl">ค้นหา</button>
+        </form>
+    </div>
+</div>
+<div>
+    {% if jobs_searched %}
+    <table class="table table-hover" id="myhomejob-table">
+        <tbody>
+            {% for jobs in jobs_searched %}
+            <tr data-href="/job_detail_jobber/{{jobs.id}}">
+                <td scope="row" width="3%"> <img class="card-img-top" src="{{ jobs.emp_name.picture }}" id="image"></td>
+                <td width="20%">
+                    <div class="col">
+                        <p id="job-name">{{ jobs.name }}</p>
+                        <p id="job-pay">{{ jobs.pay }}</p>
+                    </div>
+                </td>
+                <td width="20%">
+                    <p id="job_emp_name">{{ jobs.emp_name }}</p>
+                </td>
+                <td width="2%"> <img src="../../static/jobs/images/Pin_alt_fill.png" id="map"></td>
+                <td width="27%">
+                    <p id="job_location">{{ jobs.address }}</p>
+                </td>
+                {% if jobs.jobber > 0 %}
+                <td width="3%">
+                    <button  type="button" class="btn hired_btn">{{ jobs.jobber }} ผู้สมัคร</button>
+                </td>
+                {% else %}
+                <td width="3%">
+                    <button  type="button" class="btn cancel_btn">ไม่มีผู้สมัคร</button>
+                </td>
+                {% endif %}
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+</div>
+{% else %}
+<br>
+<div class="d-flex justify-content-center my-3">
+    <img class="picbox2" src="../../static/jobs/images/no-search.png">
+</div>
+<div class="d-flex justify-content-center mt-3">
+    <p id="text-body">ไม่พบผลการค้นหา</p>
+</div>
+{% endif %}
+{% else %}
+<div class="col">
+    <div class="row mt-5" id="header">งานใกล้ฉัน</div>
+    <br>
+    <div class="row" id="search">
+        <form class="d-flex" method="POST" action="{% url 'jobs_nearme' %}">
+            {% csrf_token %}
+            <input class="form-control" type="search" placeholder="พนักงานขาย" id="search-input" name="searched"
+                value="">
+            <button type="submit" class="btn btn-bl">ค้นหา</button>
+        </form>
+    </div>
+</div>
+<div>
+    <table class="table table-hover" id="myhomejob-table">
+        <tbody>
+            {% for jobs in jobs_list %}
+            <tr data-href="/job_detail_jobber/{{jobs.id}}">
+                <td scope="row" width="3%"> <img class="card-img-top" src="{{ jobs.emp_name.picture }}" id="image"></td>
+                <td width="20%">
+                    <div class="col">
+                        <p id="job-name">{{ jobs.name }}</p>
+                        <p id="job-pay">{{ jobs.pay }}</p>
+                    </div>
+                </td>
+                <td width="20%">
+                    <p id="job_emp_name">{{ jobs.emp_name }}</p>
+                </td>
+                <td width="2%"> <img src="../../static/jobs/images/Pin_alt_fill.png" id="map"></td>
+                <td width="27%">
+                    <p id="job_location">{{ jobs.address }}</p>
+                </td>
+                {% if jobs.jobber > 0 %}
+                <td width="3%">
+                    <button  type="button" class="btn hired_btn">{{ jobs.jobber }} ผู้สมัคร</button>
+                </td>
+                {% else %}
+                <td width="3%">
+                    <button  type="button" class="btn cancel_btn">ไม่มีผู้สมัคร</button>
+                </td>
+                {% endif %}
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+</div>
+{% endif %}
+{% endblock %}

@@ -73,6 +73,17 @@
 #job-table {
     color: #808080;
     font-family: 'Bai Jamjuree';
+    width: 65%;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #F8F8F8;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+#myhomejob-table {
+    color: #808080;
+    font-family: 'Bai Jamjuree';
     width: 75%;
     margin-top: 50px;
     margin-left: auto;
@@ -85,6 +96,17 @@
     color: #808080;
     font-family: 'Bai Jamjuree';
     width: 75%;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #F8F8F8;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+#myjob2-table {
+    color: #808080;
+    font-family: 'Bai Jamjuree';
+    width: 80%;
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
@@ -111,7 +133,7 @@
     object-fit: cover;
     border-radius: 50%;
     margin-top: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     margin-left: 10px;
 }
 
@@ -135,6 +157,12 @@
     margin-top: 5px;
     color: #7098DA;
 }
+#job-name2 {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 15px;
+    color: #7098DA;
+}
 
 #job-pay {
     font-size: 16px;
@@ -147,6 +175,13 @@
 #job_emp_name {
     font-size: 18px;
     margin-top: 28px;
+    margin-bottom: 5px;
+    color: #808080;
+}
+
+#job_emp_name2 {
+    font-size: 16px;
+    margin-top: 30px;
     margin-bottom: 5px;
     color: #808080;
 }
