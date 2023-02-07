@@ -7,7 +7,7 @@
       <script>
             swal({
               title: 'Something went wrong',
-              text: 'ตำแหน่งงานหรือลูกจ้างไม่ถูกต้อง',
+              text: '{{failed_message}}',
               type: "error",
               timer: 5000,
               button: false
@@ -22,15 +22,7 @@
                 <form method="post" action="" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="container mb-3">
-                          <select class="form-control" aria-label="Job" name="job" id="job" required>
-                            <option selected disabled>ชื่องาน</option>
-                            {% for jobs_list in jobs_lists %} 
-                            <option value="{{jobs_list}}">{{jobs_list}}</option>
-                            {% endfor %}
-                          </select>
-                        </div>
-                        <div class="container mb-3">
-                          <select class="form-control" aria-label="Jobber" name="jobber" id="jobber" required>
+                          <select required class="form-control" aria-label="Jobber" name="jobber" id="jobber">
                             <option selected disabled>ลูกจ้าง</option>
                             {% for jobbers_list in jobbers_lists %} 
                             <option value="{{jobbers_list}}">{{jobbers_list}}</option>
@@ -38,7 +30,7 @@
                           </select>
                         </div>
                         <div class="container mb-3">
-                          <select class="form-control" aria-label="Subject" name="subject" id="subject" required>
+                          <select required class="form-control" aria-label="Subject" name="subject" id="subject">
                             <option selected disabled>หัวข้อร้องเรียน</option>
                             {% for subject in subjects %} 
                             <option value="{{subject}}">{{subject}}</option>
@@ -55,19 +47,12 @@
           </div>
     </center>
     {% else %}
-<div class="row" id="header">งานของฉัน</div>
+<div class="row mt-4" id="header">ไม่สามารถเขียนคำร้องได้</div>
 <div class="d-flex justify-content-center my-3">
     <img class="picbox" src="../../static/jobs/images/empty-box.png">
 </div>
-<div class="d-flex justify-content-center mt-3">
-    <p id="text-body">กรุณาเพิ่มงานของคุณ</p>
-</div>
 <div class="d-flex justify-content-center mt-5">
-    {% for user in users %}
-    <a href="{% url 'add_job' id=request.user.id %}">
-        <button type="button" class="btn apply_btn2">เพิ่มงาน</button>
-    </a>
-    {% endfor %}  
+    <p id="text-body">เนื่องจากไม่มีการจ้างงาน</p>
 </div>
 {% endif %}
 {% endblock %}

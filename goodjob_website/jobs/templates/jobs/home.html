@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-{% if jobs_searched %}
+{% if searched %}
 <div class="col">
     <div class="row" id="headerhome">Are You Looking For a Good Job ?</div>
     <div class="row" id="sub-header">ค้นหางานพาร์ทไทม์ง่ายๆ ได้ที่นี่ !</div>
@@ -16,6 +16,7 @@
         </form>
     </div>
 </div>
+{% if jobs_searched %}
 <div>
     <table class="table table-hover" id="job-table">
         <tbody>
@@ -28,11 +29,11 @@
                         <p id="job-pay">{{ jobs.pay }}</p>
                     </div>
                 </td>
-                <td width="20%">
+                <td width="15%">
                     <p id="job_emp_name">{{ jobs.emp_name }}</p>
                 </td>
                 <td width="2%"> <img src="../../static/jobs/images/Pin_alt_fill.png" id="map"></td>
-                <td width="27%">
+                <td width="20%">
                     <p id="job_location">{{ jobs.address }}</p>
                     </span>
                 </td>
@@ -41,6 +42,15 @@
         {% endfor %}
     </table>
 </div>
+{% else %}
+<br>
+<div class="d-flex justify-content-center my-3">
+    <img class="picbox2" src="../../static/jobs/images/no-search.png">
+</div>
+<div class="d-flex justify-content-center mt-3">
+    <p id="text-body">ไม่พบผลการค้นหา</p>
+</div>
+{% endif %}
 {% else %}
 <div class="col">
     <div class="row" id="headerhome">Are You Looking For a Good Job ?</div>
@@ -67,11 +77,11 @@
                         <p id="job-pay">{{ jobs.pay }}</p>
                     </div>
                 </td>
-                <td width="20%">
+                <td width="15%">
                     <p id="job_emp_name">{{ jobs.emp_name }}</p>
                 </td>
                 <td width="2%"> <img src="../../static/jobs/images/Pin_alt_fill.png" id="map"></td>
-                <td width="27%">
+                <td width="20%">
                     <p id="job_location">{{jobs.address}}</p>
                     </span>
                 </td>

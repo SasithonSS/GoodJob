@@ -39,7 +39,7 @@
     <!-- Header -->
     <!--------nav sign in --------->
     <nav class="navbar sticky-top navbar-expand-lg navbar-light navbar-fixed-top" >
-        <a class="col navbar-brand" href="/home_emp">
+        <a class="col navbar-brand" style="margin-left: 5%;" href="/home_emp">
             <img src="{% static 'jobs/images/logo.png' %}" width="230px" height="50px" />
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,7 +64,9 @@
 
                 {% else %}
                 {% if not request.user.employeruser.employercheck.identity_pic %}
-                <img class="card-img-top" src="../../../{{ request.user.employeruser.picture}}" id="profileimage_pic">
+                <img class="card-img-top" src="{% static 'jobs/images/Profile.png' %}" id="profileimage_pic">
+                {% elif not request.user.employeruser.employercheck.check_emp%}
+                <img class="card-img-top" src="../../../{{ request.user.employeruser.picture}}" id="profileimage_pic_wait">
                 {% else %}
                 <img class="card-img-top" src="{% static 'jobs/images/Profile.png' %}" id="profileimage">
                 {% endif %}

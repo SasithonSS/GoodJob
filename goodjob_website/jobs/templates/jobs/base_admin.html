@@ -31,7 +31,7 @@
     <!-- Header -->
     <!--------nav sign in --------->
     <nav class="navbar sticky-top navbar-expand-lg navbar-light navbar-fixed-top" >
-        <a class="col navbar-brand" href="/home_admin">
+        <a class="col navbar-brand" style="margin-left: 10%;" href="/home_admin">
             <img src="{% static 'jobs/images/logo.png' %}" width="230px" height="50px" />
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,8 +54,8 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" id="dropdown" href="{% url 'admin_profile' id=request.user.id %}">ข้อมูลของฉัน</a>
                   <a class="dropdown-item" id="dropdown" href="/admin">จัดการข้อมูล</a>
-                  <a class="dropdown-item" id="dropdown" href="#">รายงานที่เกี่ยวข้อง</a>
-                  <a class="dropdown-item" id="dropdown" href="#">คำร้องเรียน</a>
+                  <a class="dropdown-item" id="dropdown" href="{% url 'complain_jobber' %}">คำร้องลูกจ้าง</a>
+                  <a class="dropdown-item" id="dropdown" href="{% url 'complain_emp' %}">คำร้องผู้จ้างงาน</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" id="dropdown" href="{% url 'logout' %}">ออกจากระบบ</a>
                 </div>
