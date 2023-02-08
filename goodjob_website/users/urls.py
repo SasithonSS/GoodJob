@@ -14,6 +14,4 @@ urlpatterns = [
     path('jobber_update/<int:id>', views.jobber_update, name='jobber_update'),
     path('emp_profile/<int:id>', views.emp_profile, name='emp_profile'),
     path('emp_update/<int:id>', views.emp_update, name='emp_update'),
-    path('admin_profile/<int:id>', views.admin_profile, name='admin_profile'),
-    path('admin_update/<int:id>', views.admin_update, name='admin_update'),
 ]

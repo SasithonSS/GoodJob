@@ -52,7 +52,6 @@
                   {% endif %}
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" id="dropdown" href="{% url 'admin_profile' id=request.user.id %}">ข้อมูลของฉัน</a>
                   <a class="dropdown-item" id="dropdown" href="/admin">จัดการข้อมูล</a>
                   <a class="dropdown-item" id="dropdown" href="{% url 'complain_jobber' %}">คำร้องลูกจ้าง</a>
                   <a class="dropdown-item" id="dropdown" href="{% url 'complain_emp' %}">คำร้องผู้จ้างงาน</a>

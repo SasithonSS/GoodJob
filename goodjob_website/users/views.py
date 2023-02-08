@@ -190,26 +190,6 @@ def emp_update(request,id):
     context = {'users': users,'province':province}
     return render(request, 'users/emp_update.html', context)
 
-@login_required(login_url='login')
-def admin_profile(request,id):
-    users = User.objects.filter(id=id)
-    return render(request, 'users/admin_profile.html', {'users': users})
-
-@login_required(login_url='login')
-def admin_update(request,id):
-    users = User.objects.filter(id=id)
-    if request.method == 'POST':
-        admin = AdminUser()
-        admin.user = User.objects.get(id=id)
-        admin.name = request.user.first_name
-        admin.email = request.POST.get('email')
-        admin.picture = request.FILES['picture']
-        admin.save()
-        return redirect('admin_profile',id=id)
-
-    context = {'users': users}
-    return render(request, 'users/admin_update.html', context)
-
 
 def reset_password(request):
     return render(request, 'users/reset_password.html')
