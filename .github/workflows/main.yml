@@ -1,0 +1,25 @@
+name: Update fork2
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - patch
+permissions:
+  pull-requests: write
+jobs:
+  updateFork:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: SasithonSS/GoodJob
+      - name: Reset the default branch with upstream changes
+        run: |
+          git remote add upstream  https://github.com/SasithonS/GoodJob.git
+          git fetch upstream main:main
+          git reset --hard main
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.ST_GOODJOB_PAT }}
+          branch: main
