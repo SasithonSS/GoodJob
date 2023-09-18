@@ -1,7 +1,12 @@
 name: Update fork
 on:
-  schedule:
-    - cron:  '*/5 * * * *'
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  pull-requests: write
 jobs:
   updateFork:
     runs-on: ubuntu-latest
