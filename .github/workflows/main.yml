@@ -23,3 +23,5 @@ jobs:
         with:
           token: ${{ secrets.ST_GOODJOB_PAT2 }}
           branch: main
+        env:
+          GITHUB_TOKEN: ${{ secrets.ST_GOODJOB_PAT2 }}
