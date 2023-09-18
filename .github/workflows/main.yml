@@ -1,9 +1,9 @@
-name: Update fork
+name: Update fork test
 on:
   workflow_dispatch:
   push:
     branches:
-      - dev
+      - patch
 permissions:
   pull-requests: write
 jobs:
