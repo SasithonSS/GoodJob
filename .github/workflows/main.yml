@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-
-permissions:
-  pull-requests: write
 jobs:
   updateFork:
     runs-on: ubuntu-latest
