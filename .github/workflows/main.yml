@@ -18,8 +18,8 @@ jobs:
           git remote add upstream  https://github.com/SasithonS/GoodJob.git
           git fetch upstream main:main
           git reset --hard main
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5
-        with:
-          token: ${{ secrets.ST_GOODJOB_PAT }}
-          branch: test
+      - name: create-pull-request
+        run: |
+          gh pr create --base main --head test --title "[Auto] Pull request" --body "Description"
+        env:
+          GITHUB_TOKEN: ${{ secrets.ST_GOODJOB_PAT }}
